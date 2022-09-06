@@ -33,9 +33,8 @@ ven.fecha >= '2019-1-1' and ven.fecha < '2022-1-1'
 group by gal.galeria, to_char(ven.fecha,'Month') ORDER BY gal.galeria, to_date(to_char(ven.fecha,'Month'), 'Month') ASC;
 --- Pregunta 8 ---
 SELECT cliente, COUNT(fecha) FROM public.venta as ve, public.cliente as cl
-WHERE ve.id_cliente = cl.id_cliente 
-GROUP BY cliente, ve.fecha
-HAVING fecha>='2019-01-01' AND fecha<'2022-01-01'
+WHERE ve.id_cliente = cl.id_cliente AND ve.fecha>='2019-01-01' AND ve.fecha<'2022-01-01'
+GROUP BY cliente
 ORDER BY COUNT(fecha) DESC LIMIT 1;
 --- Pregunta 9 ---
 SELECT ga.galeria, COALESCE(h.hombres, 0) as hombres, COALESCE(h.promedio,0) as promedio_hombres, COALESCE(x.mujeres,0) as mujeres, COALESCE(x.promedio,0) as promedio_mujeres FROM galeria as ga, (SELECT galeria, COUNT(galeria) as hombres, AVG(ve.sueldo)::numeric(10,2) AS promedio FROM 

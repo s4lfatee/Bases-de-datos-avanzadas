@@ -5,7 +5,7 @@
 -- Dumped from database version 14.5
 -- Dumped by pg_dump version 14.5
 
--- Started on 2022-09-04 22:23:17
+-- Started on 2022-09-05 23:21:01
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -19,11 +19,11 @@ SET client_min_messages = warning;
 SET row_security = off;
 
 --
--- TOC entry 3367 (class 1262 OID 18042)
+-- TOC entry 3367 (class 1262 OID 18398)
 -- Name: Galeria_de_arte; Type: DATABASE; Schema: -; Owner: postgres
 --
 
-CREATE DATABASE "Galeria_de_arte" WITH TEMPLATE = template0 ENCODING = 'UTF8' LOCALE = 'Spanish_Chile.1252';
+CREATE DATABASE "Galeria_de_arte" WITH TEMPLATE = template0 ENCODING = 'UTF8';
 
 
 ALTER DATABASE "Galeria_de_arte" OWNER TO postgres;
@@ -46,7 +46,7 @@ SET default_tablespace = '';
 SET default_table_access_method = heap;
 
 --
--- TOC entry 209 (class 1259 OID 18043)
+-- TOC entry 209 (class 1259 OID 18399)
 -- Name: cliente; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -60,7 +60,7 @@ CREATE TABLE public.cliente (
 ALTER TABLE public.cliente OWNER TO postgres;
 
 --
--- TOC entry 210 (class 1259 OID 18046)
+-- TOC entry 210 (class 1259 OID 18402)
 -- Name: comuna; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -74,21 +74,21 @@ CREATE TABLE public.comuna (
 ALTER TABLE public.comuna OWNER TO postgres;
 
 --
--- TOC entry 211 (class 1259 OID 18049)
+-- TOC entry 211 (class 1259 OID 18405)
 -- Name: galeria; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.galeria (
     id_galeria integer NOT NULL,
     id_comuna integer NOT NULL,
-    galeria character varying(30) NOT NULL
+    galeria character varying(50) NOT NULL
 );
 
 
 ALTER TABLE public.galeria OWNER TO postgres;
 
 --
--- TOC entry 212 (class 1259 OID 18052)
+-- TOC entry 212 (class 1259 OID 18408)
 -- Name: producto; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -104,7 +104,7 @@ CREATE TABLE public.producto (
 ALTER TABLE public.producto OWNER TO postgres;
 
 --
--- TOC entry 213 (class 1259 OID 18055)
+-- TOC entry 213 (class 1259 OID 18411)
 -- Name: region; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -117,7 +117,7 @@ CREATE TABLE public.region (
 ALTER TABLE public.region OWNER TO postgres;
 
 --
--- TOC entry 214 (class 1259 OID 18058)
+-- TOC entry 214 (class 1259 OID 18414)
 -- Name: tipo; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -130,7 +130,7 @@ CREATE TABLE public.tipo (
 ALTER TABLE public.tipo OWNER TO postgres;
 
 --
--- TOC entry 215 (class 1259 OID 18061)
+-- TOC entry 215 (class 1259 OID 18417)
 -- Name: vendedor; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -147,7 +147,7 @@ CREATE TABLE public.vendedor (
 ALTER TABLE public.vendedor OWNER TO postgres;
 
 --
--- TOC entry 216 (class 1259 OID 18064)
+-- TOC entry 216 (class 1259 OID 18420)
 -- Name: venta; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -164,7 +164,7 @@ CREATE TABLE public.venta (
 ALTER TABLE public.venta OWNER TO postgres;
 
 --
--- TOC entry 3354 (class 0 OID 18043)
+-- TOC entry 3354 (class 0 OID 18399)
 -- Dependencies: 209
 -- Data for Name: cliente; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -174,7 +174,7 @@ COPY public.cliente (id_cliente, id_comuna, cliente) FROM stdin;
 
 
 --
--- TOC entry 3355 (class 0 OID 18046)
+-- TOC entry 3355 (class 0 OID 18402)
 -- Dependencies: 210
 -- Data for Name: comuna; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -184,7 +184,7 @@ COPY public.comuna (id_comuna, id_region, comuna) FROM stdin;
 
 
 --
--- TOC entry 3356 (class 0 OID 18049)
+-- TOC entry 3356 (class 0 OID 18405)
 -- Dependencies: 211
 -- Data for Name: galeria; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -194,7 +194,7 @@ COPY public.galeria (id_galeria, id_comuna, galeria) FROM stdin;
 
 
 --
--- TOC entry 3357 (class 0 OID 18052)
+-- TOC entry 3357 (class 0 OID 18408)
 -- Dependencies: 212
 -- Data for Name: producto; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -204,7 +204,7 @@ COPY public.producto (id_producto, id_tipo, producto, peso, id_galeria) FROM std
 
 
 --
--- TOC entry 3358 (class 0 OID 18055)
+-- TOC entry 3358 (class 0 OID 18411)
 -- Dependencies: 213
 -- Data for Name: region; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -214,7 +214,7 @@ COPY public.region (id_region, region) FROM stdin;
 
 
 --
--- TOC entry 3359 (class 0 OID 18058)
+-- TOC entry 3359 (class 0 OID 18414)
 -- Dependencies: 214
 -- Data for Name: tipo; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -224,7 +224,7 @@ COPY public.tipo (id_tipo, tipo) FROM stdin;
 
 
 --
--- TOC entry 3360 (class 0 OID 18061)
+-- TOC entry 3360 (class 0 OID 18417)
 -- Dependencies: 215
 -- Data for Name: vendedor; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -234,7 +234,7 @@ COPY public.vendedor (id_vendedor, id_comuna, id_galeria, vendedor, sexo, sueldo
 
 
 --
--- TOC entry 3361 (class 0 OID 18064)
+-- TOC entry 3361 (class 0 OID 18420)
 -- Dependencies: 216
 -- Data for Name: venta; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -244,7 +244,7 @@ COPY public.venta (id_venta, id_producto, id_cliente, id_vendedor, fecha, monto)
 
 
 --
--- TOC entry 3192 (class 2606 OID 18068)
+-- TOC entry 3192 (class 2606 OID 18424)
 -- Name: cliente cliente_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -253,7 +253,7 @@ ALTER TABLE ONLY public.cliente
 
 
 --
--- TOC entry 3194 (class 2606 OID 18070)
+-- TOC entry 3194 (class 2606 OID 18426)
 -- Name: comuna comuna_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -262,7 +262,7 @@ ALTER TABLE ONLY public.comuna
 
 
 --
--- TOC entry 3196 (class 2606 OID 18072)
+-- TOC entry 3196 (class 2606 OID 18428)
 -- Name: galeria galeria_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -271,7 +271,7 @@ ALTER TABLE ONLY public.galeria
 
 
 --
--- TOC entry 3198 (class 2606 OID 18074)
+-- TOC entry 3198 (class 2606 OID 18430)
 -- Name: producto producto_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -280,7 +280,7 @@ ALTER TABLE ONLY public.producto
 
 
 --
--- TOC entry 3200 (class 2606 OID 18076)
+-- TOC entry 3200 (class 2606 OID 18432)
 -- Name: region region_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -289,7 +289,7 @@ ALTER TABLE ONLY public.region
 
 
 --
--- TOC entry 3202 (class 2606 OID 18078)
+-- TOC entry 3202 (class 2606 OID 18434)
 -- Name: tipo tipo_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -298,7 +298,7 @@ ALTER TABLE ONLY public.tipo
 
 
 --
--- TOC entry 3204 (class 2606 OID 18080)
+-- TOC entry 3204 (class 2606 OID 18436)
 -- Name: vendedor vendedor_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -307,7 +307,7 @@ ALTER TABLE ONLY public.vendedor
 
 
 --
--- TOC entry 3205 (class 2606 OID 18081)
+-- TOC entry 3205 (class 2606 OID 18437)
 -- Name: cliente fk_cliente_comuna; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -316,7 +316,7 @@ ALTER TABLE ONLY public.cliente
 
 
 --
--- TOC entry 3206 (class 2606 OID 18086)
+-- TOC entry 3206 (class 2606 OID 18442)
 -- Name: comuna fk_comuna_region; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -325,7 +325,7 @@ ALTER TABLE ONLY public.comuna
 
 
 --
--- TOC entry 3207 (class 2606 OID 18091)
+-- TOC entry 3207 (class 2606 OID 18447)
 -- Name: galeria fk_galeria_comuna; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -334,7 +334,7 @@ ALTER TABLE ONLY public.galeria
 
 
 --
--- TOC entry 3208 (class 2606 OID 18096)
+-- TOC entry 3208 (class 2606 OID 18452)
 -- Name: producto fk_producto_galeria; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -343,7 +343,7 @@ ALTER TABLE ONLY public.producto
 
 
 --
--- TOC entry 3209 (class 2606 OID 18101)
+-- TOC entry 3209 (class 2606 OID 18457)
 -- Name: producto fk_producto_tipo; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -352,7 +352,7 @@ ALTER TABLE ONLY public.producto
 
 
 --
--- TOC entry 3210 (class 2606 OID 18106)
+-- TOC entry 3210 (class 2606 OID 18462)
 -- Name: vendedor fk_vendedor_comuna; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -361,7 +361,7 @@ ALTER TABLE ONLY public.vendedor
 
 
 --
--- TOC entry 3211 (class 2606 OID 18111)
+-- TOC entry 3211 (class 2606 OID 18467)
 -- Name: vendedor fk_vendedor_galeria; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -370,7 +370,7 @@ ALTER TABLE ONLY public.vendedor
 
 
 --
--- TOC entry 3212 (class 2606 OID 18116)
+-- TOC entry 3212 (class 2606 OID 18472)
 -- Name: venta fk_venta_cliente; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -379,7 +379,7 @@ ALTER TABLE ONLY public.venta
 
 
 --
--- TOC entry 3213 (class 2606 OID 18121)
+-- TOC entry 3213 (class 2606 OID 18477)
 -- Name: venta fk_venta_producto; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -388,7 +388,7 @@ ALTER TABLE ONLY public.venta
 
 
 --
--- TOC entry 3214 (class 2606 OID 18126)
+-- TOC entry 3214 (class 2606 OID 18482)
 -- Name: venta fk_venta_vendedor; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -396,7 +396,7 @@ ALTER TABLE ONLY public.venta
     ADD CONSTRAINT fk_venta_vendedor FOREIGN KEY (id_vendedor) REFERENCES public.vendedor(id_vendedor);
 
 
--- Completed on 2022-09-04 22:23:17
+-- Completed on 2022-09-05 23:21:01
 
 --
 -- PostgreSQL database dump complete
